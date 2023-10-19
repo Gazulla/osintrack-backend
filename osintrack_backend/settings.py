@@ -7,11 +7,11 @@ env = environ.Env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-ub^_6^q=p*p+myg2s02_+4dkg=f3p$2#&3!8jlas#59#b7cat-"
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
-DEBUG = True
+DEBUG = env("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','127.0.0.1',env("FRONTEND_IP")]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -69,7 +69,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'http://192.168.1.38:5173',
+    'http://'+env("FRONTEND_IP")+':5173',
+    'http://127.0.0.1:5173',
 ]
 
 ROOT_URLCONF = "osintrack_backend.urls"
@@ -131,6 +132,8 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+MEDIA_URL = "/images/"
 
 MEDIA_ROOT = "static/images"
 

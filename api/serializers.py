@@ -39,4 +39,4 @@ class UserSerializerWithToken(UserSerializer):
 class NarrativeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Narrative
-        fields = ['_id', 'title', 'description', 'image']
+        fields = ['_id', 'title', 'description', 'image', 'createdAt']
