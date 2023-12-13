@@ -8,4 +8,6 @@ urlpatterns =  [
     path("api/auth/", include("api.urls.auth_urls")),
     path("api/narratives/", include("api.urls.narrative_urls")),
     path("api/admin/", include("api.urls.admin_urls")),
+    path("api/telegram/", include("api.urls.telegram_urls")),
+    path("api/profile/", include("api.urls.profile_urls")),
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

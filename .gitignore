@@ -4,3 +4,6 @@
 env/
 venv/
 ENV/
+
+# Media
+static/images/

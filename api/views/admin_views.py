@@ -13,7 +13,8 @@ def getAppSettings(request):
     if len(appSettings) == 0:
          settings = AppSettings.objects.create(
             telegramApiId = "",
-            telegramApiHash = "")
+            telegramApiHash = "",
+            telegramPhone = "")
     else:
          settings = appSettings[0]
     serializer = AppSettingsSerializer(settings, many=False)
@@ -28,6 +29,7 @@ def updateAppSettings(request):
         settings = AppSettings.objects.all()[0]
         settings.telegramApiId = data["telegramApiId"]
         settings.telegramApiHash = data["telegramApiHash"]
+        settings.telegramPhone = data["telegramPhone"]
         settings.save()     
         serializer = AppSettingsSerializer(settings, many=False)
         return Response(serializer.data)
